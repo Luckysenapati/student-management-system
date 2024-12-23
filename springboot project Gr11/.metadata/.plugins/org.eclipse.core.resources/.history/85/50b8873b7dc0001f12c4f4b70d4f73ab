@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+
+		.hero {
+		  background-color: #0040C1;
+		  position: relative;
+		  height: 100vh;
+		  overflow: hidden;
+		  font-family: 'Montserrat', sans-serif;
+		}
+
+		.hero__title {
+		  color: #fff;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  font-size: 50px;
+		  z-index: 1;
+		}
+
+		.cube {
+		  position: absolute;
+		  top: 80vh;
+		  left: 45vw;
+		  width: 10px;
+		  height: 10px;
+		  border: solid 1px darken(#0040C1, 8%);
+		  transform-origin: top left;
+		  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+		  animation: cube 12s ease-in forwards infinite;
+		  
+		  &:nth-child(2n) {
+		    border-color: lighten(#0040C1, 10%);
+		  }
+		  
+		  &:nth-child(2) {
+		    animation-delay: 2s;
+		    left: 25vw;
+		    top: 40vh;
+		  }
+		  
+		  &:nth-child(3) {
+		    animation-delay: 4s;
+		    left: 75vw;
+		    top: 50vh;
+		  }
+		  
+		  &:nth-child(4) {
+		    animation-delay: 6s;
+		    left: 90vw;
+		    top: 10vh;
+		  }
+		  
+		  &:nth-child(5) {
+		    animation-delay: 8s;
+		    left: 10vw;
+		    top: 85vh;
+		  }
+		  
+		  &:nth-child(6) {
+		    animation-delay: 10s;
+		    left: 50vw;
+		    top: 10vh;
+		  }
+		}
+
+		@keyframes cube {
+		  from {
+		    transform: scale(0) rotate(0deg) translate(-50%, -50%);   
+		    opacity: 1;
+		  }
+		  to {
+		    transform: scale(20) rotate(960deg) translate(-50%, -50%); 
+		    opacity: 0;
+		  }
+		}
+	</style>
+</head>
+<body>   
+	.hero
+	  .cube
+	  .cube
+	  .cube
+	  .cube
+	  .cube
+	  .cube     
+		
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Student Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">Student Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create New Student </h1>
+				<div class = "card-body">
+					<form th:action="@{/students}" th:object = "${student}" method="POST">
+						<div class ="form-group">
+							<label> Student ID </label>
+							<input
+							type = "text"
+							name = "Id"
+							th:field = "*{id}"
+						    class = "form-control"
+							placeholder="Enter Student ID" 
+						    />
+						</div>
+						
+						<div class ="form-group">
+							<label> Student First Name </label>
+							<input
+							type = "text"
+							name = "firstName"
+							th:field = "*{firstName}"
+							class = "form-control"
+							placeholder="Enter Student First Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Student Last Name </label>
+							<input
+							type = "text"
+							name = "lastName"
+							th:field = "*{lastName}"
+							class = "form-control"
+							placeholder="Enter Student Last Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Student Email </label>
+							<input
+							type = "text"
+							name = "email"
+							th:field = "*{email}"
+							class = "form-control"
+							placeholder="Enter Student Email" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	<style>
+		html {
+		  height:100%;
+		}
+
+		body {
+		  margin:0;
+		}
+
+		.bg {
+		  animation:slide 3s ease-in-out infinite alternate;
+		  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+		  bottom:0;
+		  left:-50%;
+		  opacity:.5;
+		  position:fixed;
+		  right:-50%;
+		  top:0;
+		  z-index:-1;
+		}
+
+		.bg2 {
+		  animation-direction:alternate-reverse;
+		  animation-duration:4s;
+		}
+
+		.bg3 {
+		  animation-duration:5s;
+		}
+
+		.content {
+		  background-color:rgba(255,255,255,.8);
+		  border-radius:.25em;
+		  box-shadow:0 0 .25em rgba(0,0,0,.25);
+		  box-sizing:border-box;
+		  left:50%;
+		  padding:10vmin;
+		  position:fixed;
+		  text-align:center;
+		  top:50%;
+		  transform:translate(-50%, -50%);
+		}
+
+		h1 {
+		  font-family:monospace;
+		}
+
+		@keyframes slide {
+		  0% {
+		    transform:translateX(-25%);
+		  }
+		  100% {
+		    transform:translateX(25%);
+		  }
+		}
+	</style>
+</head>
+<body>        
+<div class="content">
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<div class="bg"></div>
+	<div class="bg bg2"></div>
+	<div class="bg bg3"></div>
+	
+	  
+	
+
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Student Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">Student Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create New Student </h1>
+				<div class = "card-body">
+					<form th:action="@{/students}" th:object = "${student}" method="POST">
+						<div class ="form-group">
+							<label> Student ID </label>
+							<input
+							type = "text"
+							name = "Id"
+							th:field = "*{id}"
+						    class = "form-control"
+							placeholder="Enter Student ID" 
+						    />
+						</div>
+						
+						<div class ="form-group">
+							<label> Student First Name </label>
+							<input
+							type = "text"
+							name = "firstName"
+							th:field = "*{firstName}"
+							class = "form-control"
+							placeholder="Enter Student First Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Student Last Name </label>
+							<input
+							type = "text"
+							name = "lastName"
+							th:field = "*{lastName}"
+							class = "form-control"
+							placeholder="Enter Student Last Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Student Email </label>
+							<input
+							type = "text"
+							name = "email"
+							th:field = "*{email}"
+							class = "form-control"
+							placeholder="Enter Student Email" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

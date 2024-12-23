@@ -1,0 +1,5 @@
+package Student_Management_System_G11.controller.repository;
+
+public interface StudentRepository {
+
+}
