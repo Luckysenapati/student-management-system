@@ -65,3 +65,10 @@ This class implements the StudentService interface and contains the business log
 4. **Entity (Student): Represents the database table structure and holds the application's data model.
 
 This layered architecture ensures clear separation of concerns, making the application modular, maintainable, and scalable.
+
+![update](https://github.com/user-attachments/assets/650ec2cc-1a64-4ada-9a67-025362e63293)
+![add](https://github.com/user-attachments/assets/fd06e7af-8a36-4e73-9346-558fd4b6a903)
+![first page](https://github.com/user-attachments/assets/14e9642f-6198-489e-b845-fd410fae209f)
+
+
+
